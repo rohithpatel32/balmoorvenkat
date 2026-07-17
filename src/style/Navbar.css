@@ -1,0 +1,78 @@
+.navcontainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: rgb(34, 34, 162);
+    overflow-y: auto;
+}
+.navcontainer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navcontainer ul li {
+    margin-bottom: 15px; /* Space between menu items */
+    margin-left: 10px;
+}
+
+.navcontainer ul li a {
+    text-decoration: none;
+    color: white;
+}
+.navcontainer ul li a span {
+    margin-right: 10px;
+}
+.navcontainer ul li button {
+    background-color: rgb(241, 30, 30);
+    margin-left: 20px;
+    width: 80px;
+    height: 30px;
+    border-radius: 6px;
+    padding: 5px;
+}
+.venkatlogo{
+    margin-top: 30px;
+    margin-left: 50px;
+    
+}
+.bal{
+    text-align: center;
+    color: white;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.knr1{
+    color: white;
+    text-align: center;
+    margin-top: -10px;
+    font-size: 12px;
+      
+}
+.knr2{
+    color: white;
+    text-align: center;
+    margin-top: -10px;
+      font-size: 12px;
+      
+}
+.sur{
+    display: flex;
+    
+}
+
+
+.menu-btn{
+    height: 20px;
+    margin-left: 10px;
+    background: none;
+    margin-top: 20px;
+    border: navy;
+    color: grey;
+    font-size: 18px;
+}
+
+
