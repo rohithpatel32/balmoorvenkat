@@ -2,7 +2,7 @@ import React from "react";
 import '../style/Upcoming.css';
 import { SlCalender } from "react-icons/sl";
 import { TfiAnnouncement } from "react-icons/tfi";
-import { FaArrowRightLong } from "react-icons/fa6";
+
 import { FaRoad } from "react-icons/fa";
 import { IoPeople } from "react-icons/io5";
 
