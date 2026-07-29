@@ -1,20 +1,260 @@
-.column-card{
-    width:900px;
-    height:400px;
-    background:#ffffff;
-    border-radius:12px;
-    padding:20px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+.mlc1{
+    background-color: whitesmoke;
+    height:  800px;
 }
 
-.chart-title{
-    margin-bottom:20px;
-    text-align:center;
-    font-size:22px;
-    font-weight:bold;
+
+.hp{
+    margin-left: 250px;
+    
 }
 
-.chart-box{
-    width:100%;
-    height:300px;
+.mlc2{
+    margin-left: 15px;
+    display: grid;
+    
+}
+.pad1{
+    padding: 0px;
+    margin-bottom: -10px;
+}
+.mlc3 {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+.td{
+    margin-left: 700px;
+    height: 20px;
+    width: 100px;
+}
+
+.mlc4{
+    width: 240px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon1{
+    width: 60px;
+    height: 60px;
+    background-color: #e8f5e9;
+    color: blue;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+}
+
+.mlc5 h2{
+    margin: 0;
+    font-size: 28px;
+}
+
+.mlc5 p{
+    margin: 8px 0;
+    color: #666;
+}
+
+.mlc5 a{
+    text-decoration: none;
+    color: blue;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mlc4:hover{
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+.icon2{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.mlc6{
+    width: 240px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon3{
+    width: 60px;
+    height: 60px;
+    background-color: #e8f5e9;
+    color: green;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+}
+
+.mlc7 h2{
+    margin: 0;
+    font-size: 28px;
+}
+
+.mlc7 p{
+    margin: 8px 0;
+    color: #666;
+}
+
+.mlc7 a{
+    text-decoration: none;
+    color: green;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mlc6:hover:hover{
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+.icon4{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+
+.mlc8{
+    width: 240px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon5{
+    width: 60px;
+    height: 60px;
+    background-color: #e8f5e9;
+    color: blueviolet;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+}
+
+.mlc9 h2{
+    margin: 0;
+    font-size: 28px;
+}
+
+.mlc9 p{
+    margin: 8px 0;
+    color: #666;
+}
+
+.mlc9 a{
+    text-decoration: none;
+    color: blueviolet;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mlc8:hover:hover{
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+.icon6{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+
+.mlc10{
+    width: 240px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon7{
+    width: 60px;
+    height: 60px;
+    background-color: #e8f5e9;
+    color: orangered;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+}
+
+.mlc11 h2{
+    margin: 0;
+    font-size: 28px;
+}
+
+.mlc11 p{
+    margin: 8px 0;
+    color: #666;
+}
+
+.mlc11 a{
+    text-decoration: none;
+    color: orangered;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mlc10:hover:hover{
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+.icon8{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.orange{
+    display: flex;
+    gap: 30px;
+}
+.chart{
+    display: flex;
+    gap: 25px;
+}
+
+.blmr1{
+    font-size: 13px;
+    color: grey;
+    
 }

@@ -1,0 +1,129 @@
+.ex{
+    margin-left: 230px;
+    
+}
+
+.ex1{
+    display: flex;
+    gap: 500px;
+    margin-top: 30px;
+}
+.ex3 {
+    margin: 0;
+}
+
+.ex4 {
+    margin: 4px 0 0 0; 
+    color: gray;
+    font-size: 15px;
+}
+
+.ex5{
+    
+    font-size: 25px;
+}
+
+.ex6 {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(216, 237, 237);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-left: 380px;
+    margin-top: -5px;
+}
+
+.ex7{
+    margin-top: 50px;
+}
+.ex8{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.ex9{
+    margin-top: 10px;
+    width: 400px;
+    height: 25px;
+    border-radius: 5px;
+}
+.ex10{
+    margin-top: 20px;
+}
+.ex11{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.expense-category{
+    margin-top: 10px;
+    width: 410px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.ex13{
+    margin-top: 20px;
+}
+
+.ex14{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.ex15{
+    margin-top: 10px;
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+}
+.ex20{
+    display: flex;
+    gap: 40px;
+    
+}
+.ex16{
+    margin-top: 20px;
+}
+.ex17{
+    font-size: 12px;
+    font-weight: bold;
+}
+.ex18{
+    margin-top: 10px;
+    width: 400px;
+    height: 90px;
+    border-radius: 5px;
+}
+
+.ex30 {
+    width: 800px;
+    height: 420px;
+    border: 2px dashed #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Vertical center */
+    align-items: center;      /* Horizontal center */
+    gap: 10px;
+    text-align: center;
+}
+
+.ex31 {
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.ex50{
+    margin-left: 550px;
+    margin-top: 70px;
+}
+
+.ex51{
+    width: 230px;
+    height: 40px;
+    background-color: rgb(47, 3, 3);
+    color: white;
+}

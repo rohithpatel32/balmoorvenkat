@@ -1,0 +1,248 @@
+.re1{
+    
+    padding-top: 30px;
+
+}
+
+.re2 {
+    height: 90px;
+    width: 1270px;
+    background-color: #0B5ED7;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border: 1px solid black ;
+    color: #FFFFFF;
+}
+
+.re3 {
+    display: flex;
+    gap: 10px;
+}
+
+.re4 {
+    background-color: #DC3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.re5 {
+    background-color: #198754;
+    color: white;
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.re6{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.re7{
+    font-size: 30px;
+}
+
+.enfield1{
+    margin-left: 230px;
+}
+
+.enfield0 {
+    grid-template-columns: 1fr;
+    gap: 5px;  display: grid;
+  
+    width: 300px;
+   
+}
+
+.enfield0 input,
+.enfield0 select
+ {
+    width: 100%;
+    height: 40px;
+}
+
+.enfield100{
+    margin-left: 600px;
+    margin-top: 40px;
+    border-radius: 5px;
+    background-color: rgb(50, 48, 220);
+    color: white;
+    width: 180px;
+    height: 40px;
+}
+
+.enfield101 {
+    width: 220px;
+    height: 120px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.enfield101 span:first-child {
+    font-size: 16px;
+    color: #666;
+    
+}
+
+.enfield101 span:last-child {
+    font-size: 30px;
+    font-weight: bold;
+    color: #0B5ED7;
+}
+
+.enfield102 {
+    width: 220px;
+    height: 120px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.enfield102 span:first-child {
+    font-size: 16px;
+    color: #666;
+}
+
+.enfield102 span:last-child {
+    font-size: 30px;
+    font-weight: bold;
+    color: green;
+}
+.enfield103 {
+    width: 220px;
+    height: 120px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.enfield103 span:first-child {
+    font-size: 16px;
+    color: #666;
+}
+
+.enfield103 span:last-child {
+    font-size: 30px;
+    font-weight: bold;
+    color: orangered;
+}
+
+
+
+.enfield104 {
+    width: 220px;
+    height: 120px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.enfield104 span:first-child {
+    font-size: 16px;
+    color: #666;
+}
+
+.enfield104 span:last-child {
+    font-size: 30px;
+    font-weight: bold;
+    color: violet;
+}
+.enfield200{
+    display: flex;
+    gap: 50px;
+    margin-left: 30px;
+}
+
+.enfield300{
+     display: flex;
+    gap: 250px;
+    margin-top: 70px;
+    width: 1260px;
+    border-radius: 10px;
+    height: 400px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    background-color: white;
+
+}
+.enfield301{
+    margin-left: 20px;
+}
+
+.enfield305{
+    display: flex;
+    flex-direction: column;
+    
+    margin-top: 10px;
+    width: 1260px;
+    border-radius: 10px;
+    height: 200px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding-top: 50px;
+}
+
+.enfield306{
+    margin-left: 30px;
+    margin-top: -50px;
+}
+
+.enfield2{
+    display: flex;
+    flex-direction: column;
+     width: 1260px;
+    border-radius: 10px;
+    height: 400px;
+    box-shadow: 0 2px 8px r;
+    height: 500px;
+    
+}
+#fromDate,
+#toDate,
+#reportType,
+#category,
+#mandal {
+    border-radius: 5px;
+}

@@ -1,0 +1,88 @@
+.development{
+    margin-left: 200px;
+
+}
+
+.ment1 {
+  margin-left: 60px;
+  
+  font-size: 40px;
+  font-weight: bold;
+  font-family: sans-serif;
+
+  
+}
+
+.pdev {
+    width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 8px;                 
+    padding-left: 12px; 
+    background-color: green; 
+    color: white; 
+    margin-left: 580px;  
+    margin-top: 50px; 
+    border-radius: 5px;
+}
+
+.ment2{
+    display: flex;
+}
+
+.ac1{
+    margin-left: 60px;
+    display: flex;
+    gap:20px;
+}
+
+.ac2{
+    width: 550px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.ac3{
+    width: 280px;
+    height: 40px;
+       border-radius: 5px;
+}
+
+.ac4{
+    width: 288px;
+    height: 40px;
+       border-radius: 5px;
+}
+
+.edit-btn{
+    background-color: green;
+    height: 30px;
+    width: 50px;
+    border-radius: 6px;
+}
+
+.delete-btn{
+    background-color: red;
+    margin-left: 10px;
+     height: 30px;
+    width: 60px;
+    border-radius: 6px;
+}
+
+.tble {
+    width: 1200px;
+    border-collapse: collapse;
+    margin-left: 50px; 
+}
+
+.tble thead {
+    border-bottom: 1px solid #ccc; 
+}
+
+.tble th {
+    padding: 12px;
+    border: none; 
+}
+

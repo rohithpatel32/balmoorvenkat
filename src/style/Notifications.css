@@ -1,0 +1,287 @@
+.notification{
+    margin-left: 230px;
+    padding-top: 30px;
+  
+}
+.ntf{
+    background-color: whitesmoke;
+}
+
+.not{
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+.not2{
+    margin-left: 850px;
+    height: 30px;
+    width: 160px;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.not4{
+    font-size: 18px;
+    
+}
+.not5{
+    display: flex;
+    gap: 200px;
+    
+}
+
+.not6{
+    margin-left: 440px;
+    display: flex;
+    gap: 10px;
+}
+
+.not7{
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+}
+#priority{
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+}
+#status{
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+}
+.sai{
+    display: flex;
+    gap: 20px;
+}
+
+
+.not8 {
+    width: 405px;
+    height: 180px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+ transition: transform 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.not8:hover {
+    transform: scale(0.95);
+}
+
+.not9 {
+    font-size: 30px;
+    color: #0B5ED7;
+}
+
+.not10 {
+    font-size: 15px;
+    margin-top: 8px;
+    color: #555;
+}
+
+.not11 {
+    margin: 5px 0 0;
+    font-size: 25px;
+    color: #222;
+}
+
+
+
+.not18 {
+    width: 405px;
+    height: 180px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+     transition: transform 0.3s ease;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.not18:hover {
+    transform: scale(0.95);
+}
+
+.not19 {
+    font-size: 30px;
+    color: #0B5ED7;
+}
+
+.not20 {
+    font-size: 15px;
+    margin-top: 8px;
+    color: #555;
+}
+
+.not21 {
+    margin: 5px 0 0;
+    font-size: 25px;
+    color: #222;
+}
+
+
+.not28 {
+    width: 405px;
+    height: 180px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+ transition: transform 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.not28:hover {
+    transform: scale(0.95);
+}
+
+.not29 {
+    font-size: 30px;
+    color: #0B5ED7;
+}
+
+.not30 {
+    font-size: 15px;
+    margin-top: 8px;
+    color: #555;
+}
+
+.not31 {
+    margin: 5px 0 0;
+    font-size: 25px;
+    color: #222;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-top: 30px;
+}
+
+
+thead {
+    background-color: #0B5ED7;
+   
+}
+
+th {
+    padding: 14px 12px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    
+}
+
+
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    color: #333;
+}
+
+
+tbody tr:hover {
+    background-color: #f5f8ff;
+}
+
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+.sea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.sea1:hover,
+.sea2:hover,
+.sea3:hover {
+    transform: scale(1.08);
+}
+
+
+@media (max-width: 900px) {
+    table {
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 10px 8px;
+    }
+}
+
+.sea{
+    display: flex;
+    gap: 15px;
+    margin-left: 80px;
+}
+
+.sea1{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: aqua;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.sea2{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(8, 198, 65);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.sea3{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(241, 42, 24);
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+

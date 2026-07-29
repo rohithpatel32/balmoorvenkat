@@ -16,6 +16,18 @@ import { FaRegClock } from "react-icons/fa6";
 import { IoMdMale } from "react-icons/io";
 import { IoMdFemale } from "react-icons/io";
 import { HiOutlineBuildingOffice } from "react-icons/hi2";
+import { CiMap } from "react-icons/ci";
+import { LuBell } from "react-icons/lu";
+import { GiRecycle } from "react-icons/gi";
+import { FaChild } from "react-icons/fa6";
+import { FaMandalorian } from "react-icons/fa6";
+import { MdOutlineCheckCircle } from "react-icons/md"
+import { LuUserRoundPlus } from "react-icons/lu";
+import { FiPlus } from "react-icons/fi";
+import { IoSearch } from "react-icons/io5";
+import { IoMdHome } from "react-icons/io";
+import { TbReportSearch } from "react-icons/tb";
+
 import {
   BarChart,
   Bar,
@@ -230,21 +242,23 @@ function Voters (){
 
 
 </div>
-
+<div className="royal">
 <div className="tabl1">
     <div className="tabl2">
     <RiMenu3Line />
-    <h4 c>Mandal Wisw Voters Summary</h4>
+    <h4 c>Mandal Wise Voters Summary</h4>
     </div>
-    <button><FaPlus />
-        Add Voters
+    <div className="tabl3">
+    <button><FaPlus /><span>
+        Add Voters</span>
     </button>
-    <button><BiExport />Import Excel</button>
-    <button><LuImport />Export Excel</button>
+    <button><BiExport /><span>Import Excel</span></button>
+    <button><LuImport /><span>Export Excel</span></button>
     <input type="name" placeholder="Search Mandal"></input>
+    </div>
  
- 
- <table >
+  
+ <table className="table table-hover">
     <thead>
         <tr>
             <th>S.NO</th>
@@ -285,7 +299,7 @@ function Voters (){
         </tr>
 
          <tr>
-            <td>3</td>
+            <td>4</td>
             <td>Kamalapur</td>
             <td>21,540</td>
             <td>19,231</td>
@@ -295,7 +309,7 @@ function Voters (){
 
         
          <tr>
-            <td>3</td>
+            <td>5</td>
             <td>Ellanthakunta</td>
             <td>34,690</td>
             <td>18,850</td>
@@ -303,7 +317,7 @@ function Voters (){
             <td>12.23%</td>
         </tr>
 
-        <tr>
+        <tr className="hd">
             <td></td>
             <td>Total</td>
             <td>1,10,000</td>
@@ -313,9 +327,198 @@ function Voters (){
         </tr>
     </tbody>
 </table>
+</div >
+ <div className="royal1">
+  <div className="royal2">
+    <CiMap  className="royal3"/>
+    <h4>Constituency map</h4>
+    </div>
+    <div className="royal4">
+    <p>Jammikunta</p>
+    </div>
+    <div className="re1">
+    <div className="royal5">
+    <span>Huzurabad</span>
+    </div>
+    <div className="royal6">
+    <span>Veenavanka</span>
+    </div>
+    </div>
+    <div className="ree2">
+    <div className="royal7">
+    <span>Kamalapur
+    </span>
+    </div>
+    <div className="royal8">
+    <span>
+      Ellanthakunta
+    </span>
+    </div>
+    </div>
+    <div className="re3">
+    <div className="royal9">
+    <span>5 Mandals</span>
+    </div>
+    <div className="royal10">
+    <span>280</span>
+    </div>
+    </div>
+    <div className="royal11">
+    <p>Total Booths</p>
+    </div>
+    </div>
+  </div>
+
+
+
+<div className="flame">
+
+<div className="bajaj">
+  <div className="bajaj1">
+     
+<LuBell  className="bajaj2"/>
+<h4>Recent Voter Activities</h4>
+<button className="bajaj3">View All</button>
 </div>
 
-       
+<div className="bajaj50">
+<div className="bajaj4">
+  <TiTick className="bajaj9"/>
+  <div className="bajaj8">
+  <span className="bajaj5">New Voter Registration completed</span>
+  <span className="bajaj6">125 New voters added in jammikunta mandal </span>
+  </div>
+
+  <span className="bajaj7">10:30AM</span>
+</div>
+
+
+<div className="bajaj14">
+<GiRecycle className="bajaj19"/>
+<div className="bajaj18">
+<span className="bajaj15">Voters data updated</span>
+<span className="bajaj16">Voter list updated for 2024 elections</span>
+</div>
+<span className="bajaj17">yesterday</span>
+</div>
+
+
+<div className="bajaj24">
+   <TiTick className="bajaj29" />
+   <div className="bajaj28">
+   <span className="bajaj25">Votercorrection completed</span>
+   <span className="bajaj26">342 correction processed</span>
+   </div>
+   <span className="bajaj27">21 may 2024</span>
+
+</div>
+
+<div className="bajaj34">
+  <GiRecycle className="bajaj39" />
+  <div className="bajaj38">
+  <span className="bajaj35">Vote transfer processed</span>
+  <span className="bajaj36">84 voters transfer requests completed</span>
+  </div>
+  <span className="bajaj37">20 may 2024</span>
+</div>
+</div>
+</div>
+
+<div className="flame1">
+
+<div className="flame2">
+<FaChild />
+<h4>Beneficiaries Summary </h4>
+<button className="flame3">View All</button>
+</div>
+
+<div className="flame10">
+<div className="flame8">
+  <FaChild className="flame4" />
+<span className="flame5">18,742</span>
+<span className="flame6">Total Beneficiaries</span>
+<span className="flame7">Govt schemes</span>
+</div>
+
+
+
+<div className="flame18">
+  <FaMandalorian className="flame14" />
+<span className="flame15">15,890</span>
+<span className="flame16">Families Covered</span>
+<span className="flame17">Across Schemes</span>
+  
+</div>
+</div>
+
+<div className="flame20">
+<div className="flame28">
+  <MdOutlineCheckCircle className="flame24"/>
+<span className="flame25">18,742</span>
+<span className="flame26">Total Beneficiaries</span>
+<span className="flame27">Govt schemes</span>
+  
+</div>
+
+
+<div className="flame38">
+  <LuUserRoundPlus className="flame34" />
+
+<span className="flame35">18,742</span>
+<span className="flame36">Total Beneficiaries</span>
+<span className="flame37">Govt schemes</span>
+  
+</div>
+</div>
+
+
+</div>
+
+
+
+</div>
+
+<div className="tvs">
+  <div className="tvs1">
+  <FiPlus />
+  <h5 className="tvs2">Quick Actions</h5>
+  </div>
+<div className="tvs3">
+  <div className="tvs4">
+      <LuUserRoundPlus className="tvs5"/>
+      <span className="tvs6">Add Voter</span>
+      </div>
+
+<div className="tvs14">
+          <BiExport className="tvs15"/>
+      <span>Bulk Upload</span>
+      </div>
+
+      <div className="tvs24">
+
+<IoSearch className="tvs25"/>
+<span>Voter search</span>
+      </div>
+
+
+      <div className="tvs34">
+<IoMdHome className="tvs35" />
+<span>Add Boots</span>
+      </div>
+
+      <div className="tvs44">
+        <LuImport className="tvs45"/>
+        <span>Download List</span>
+      </div>
+
+      <div className="tvs54">
+        <TbReportSearch className="tvs55"/>
+        <span>Generate Report</span>
+      </div>
+    </div>
+
+</div>
+
 
         </div>
 
