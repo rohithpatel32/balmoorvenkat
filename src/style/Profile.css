@@ -1,683 +1,800 @@
-.profile{
-    background-color: whitesmoke;
-    height: 1500px;
+/* =========================================
+   PROFILE PAGE
+========================================= */
+
+.profile {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #f5f7fb;
+
+    box-sizing: border-box;
 }
 
 
-.profile1{
-    margin-left: 230px;
-    padding-top: 20px;
+/* =========================================
+   MAIN PROFILE CONTENT
+========================================= */
+
+.profile1 {
+    margin-left: 240px;
+
+    width: calc(100% - 240px);
+
+    min-height: 100vh;
+
+    padding: 30px;
+
+    box-sizing: border-box;
 }
-.profile2{
+
+
+/* =========================================
+   PAGE TITLE
+========================================= */
+
+.profile1 > h2 {
+    margin: 0 0 20px;
+
+    color: #222;
+
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   PROFILE HEADER CARD
+========================================= */
+
+.profile2 {
+    width: 100%;
+
+    min-height: 150px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
     display: flex;
+
     flex-direction: column;
-    justify-content: center;
+
     align-items: center;
-    width: 1270px;
-    height: 200px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 
+    justify-content: center;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.06);
 }
 
 
-.profile3{
-    font-size: 100px;
+/* =========================================
+   PROFILE ICON
+========================================= */
+
+.profile3 {
+    width: 55px;
+    height: 55px;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    border-radius: 50%;
+
+    background: #fff0df;
+
+    color: #f28c28;
 }
-.profile4{
-    margin: 0;
+
+
+/* =========================================
+   PROFILE NAME
+========================================= */
+
+.profile4 {
+    margin: 8px 0 2px;
+
+    font-size: 20px;
+
+    color: #222;
+}
+
+
+/* =========================================
+   PROFILE ROLE
+========================================= */
+
+.profile5 {
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   PERSONAL INFORMATION
+========================================= */
+
+.profile11 {
+    margin-top: 25px;
+
+    width: 100%;
+
+    background: white;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================================
+   SECTION TITLE
+========================================= */
+
+.profile16,
+.inform16,
+.lock16 {
+    margin: 0 0 20px;
+
+    font-size: 19px;
+
+    color: #222;
+}
+
+
+/* =========================================
+   PERSONAL GRID
+========================================= */
+
+.ear1,
+.ear2 {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================
+   PERSONAL CARDS
+========================================= */
+
+.profile12,
+.profile22,
+.profile32,
+.profile42,
+.profile52,
+.profile62 {
+
+    min-height: 100px;
+
+    background: #f8f9fc;
+
+    border: 1px solid #edf0f5;
+
+    border-radius: 9px;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.pro2,
+.pro22,
+.pro32,
+.pro42,
+.pro52,
+.pro62 {
+
+    display: grid;
+
+    grid-template-columns: 42px 1fr;
+
+    column-gap: 10px;
+
+    align-items: center;
+}
+
+
+/* =========================================
+   ICON BOX
+========================================= */
+
+.pro1,
+.pro21,
+.pro31,
+.pro41,
+.pro61 {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fff0df;
+
+    border-radius: 8px;
+
+    grid-row: span 2;
+}
+
+
+/* =========================================
+   ICONS
+========================================= */
+
+.profile13,
+.profile23,
+.profile33,
+.profile43,
+.profile53,
+.profile63 {
+
+    color: #f28c28;
+
     font-size: 18px;
-    margin-top: 15px;
-    
-}
-.profile5{
-    color: grey;
-    font-size: 14px;
-    margin-top: 10px;
-}
-
-.profile11{
-     
-    width: 1270px;
-    height: 370px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    margin-top: 30px;
-    padding-top: 10px;
-
-}
-.ear1{
-    display: flex;
-    gap: 30px;
-    margin-left: 20px;
-}
-.ear2{
-    display: flex;
-    gap: 30px;
-    margin-left: 20px;
-    margin-top: 20px;
-}
-.profile16{
-    margin-left: 20px;
-    
 }
 
 
-.profile12{
-    width: 390px;
-    height: 130px;
-    border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      background-color: whitesmoke;
+/* =========================================
+   LABELS
+========================================= */
+
+.profile14,
+.profile24,
+.profile34,
+.profile44,
+.profile54,
+.profile64 {
+
+    color: #888;
+
+    font-size: 11px;
 }
 
-.pro1{
-    width: 35px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
+
+/* =========================================
+   VALUES
+========================================= */
+
+.profile15,
+.profile25,
+.profile35,
+.profile45,
+.profile55,
+.profile65 {
+
+    margin: 3px 0 0;
+
+    color: #333;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    word-break: break-word;
+}
+
+
+/* =========================================
+   PROFESSION INFORMATION
+========================================= */
+
+.inform11 {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================================
+   PROFESSION GRID
+========================================= */
+
+.eye1 {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+}
+
+.eye2 {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+/* =========================================
+   PROFESSION CARDS
+========================================= */
+
+.inform12,
+.inform22,
+.inform32,
+.inform42 {
+
+    min-height: 100px;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    background: #f8f9fc;
+
+    border: 1px solid #edf0f5;
+
+    border-radius: 9px;
+}
+
+
+/* =========================================
+   PROFESSION CONTENT
+========================================= */
+
+.plus12,
+.plus22,
+.plus32,
+.plus42 {
+
+    display: grid;
+
+    grid-template-columns: 42px 1fr;
+
+    column-gap: 10px;
+
     align-items: center;
-    color: blue;
-}
-.profile13{
-    font-size: 25px;
 }
 
-.profile14{
-    font-size: 10px;
-    color: grey;
-    margin-top: 10px;
-}
 
-.profile15{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.pro2{
-    margin-left: 15px;
+/* =========================================
+   PROFESSION ICON BOX
+========================================= */
+
+.plus11,
+.plus21,
+.plus31,
+.plus41 {
+
+    width: 40px;
+    height: 40px;
+
     display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-}
 
-
-
-
-.profile22{
-    width: 390px;
-    height: 130px;
-    border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      background-color: whitesmoke;
-}
-
-.pro21{
-    width: 35px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    color: blue;
-}
-.profile23{
-    font-size: 25px;
-}
-
-.profile24{
-    font-size: 10px;
-    color: grey;
-    margin-top: 10px;
-}
-
-.profile25{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.pro22{
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-}
-
-
-
-.profile32{
-    width: 390px;
-    height: 130px;
-    border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      background-color: whitesmoke;
-}
-
-.pro31{
-    width: 35px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
     justify-content: center;
+
+    background: #fff0df;
+
+    border-radius: 8px;
+
+    grid-row: span 2;
+}
+
+
+/* =========================================
+   PROFESSION ICON
+========================================= */
+
+.inform13,
+.inform23,
+.inform33,
+.inform43 {
+
+    color: #f28c28;
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   PROFESSION LABEL
+========================================= */
+
+.inform14,
+.inform24,
+.inform34,
+.inform44 {
+
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   PROFESSION VALUE
+========================================= */
+
+.inform15,
+.inform25,
+.inform35,
+.inform45 {
+
+    margin: 3px 0 0;
+
+    color: #333;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   SECURITY
+========================================= */
+
+.lock11 {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================================
+   SECURITY GRID
+========================================= */
+
+.lockup {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+
+/* =========================================
+   SECURITY CARDS
+========================================= */
+
+.lock12,
+.lock22 {
+
+    min-height: 100px;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+    background: #f8f9fc;
+
+    border: 1px solid #edf0f5;
+
+    border-radius: 9px;
+}
+
+
+/* =========================================
+   SECURITY CONTENT
+========================================= */
+
+.kick12,
+.kick22 {
+
+    display: grid;
+
+    grid-template-columns: 42px 1fr;
+
+    column-gap: 10px;
+
     align-items: center;
-    color: blue;
-}
-.profile33{
-    font-size: 20px;
 }
 
-.profile34{
-    font-size: 10px;
-    color: grey;
-    margin-top: 10px;
-}
 
-.profile35{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.pro32{
-    margin-left: 15px;
+/* =========================================
+   SECURITY ICON BOX
+========================================= */
+
+.kick11,
+.kick21 {
+
+    width: 40px;
+    height: 40px;
+
     display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-}
 
-
-
-
-
-.profile42{
-    width: 390px;
-    height: 130px;
-    border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      background-color: whitesmoke;
-}
-
-.pro41{
-    width: 35px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
+    align-items: center;
     justify-content: center;
+
+    background: #fff0df;
+
+    border-radius: 8px;
+
+    grid-row: span 2;
+}
+
+
+/* =========================================
+   SECURITY ICON
+========================================= */
+
+.lock13,
+.lock23 {
+
+    color: #f28c28;
+
+    font-size: 18px;
+}
+
+
+/* =========================================
+   SECURITY LABEL
+========================================= */
+
+.lock14,
+.lock24 {
+
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   SECURITY VALUE
+========================================= */
+
+.lock15,
+.lock25 {
+
+    margin-top: 3px;
+
+    color: #333;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.press1 {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+    padding-bottom: 20px;
+}
+
+
+.press2,
+.press3 {
+
+    display: flex;
+
     align-items: center;
-    color: blue;
-}
-.profile43{
-    font-size: 25px;
-}
 
-.profile44{
-    font-size: 10px;
-    color: grey;
-    margin-top: 10px;
-}
-
-.profile45{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.pro42{
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-}
-
-
-
-
-
-.profile52{
-    width: 390px;
-    height: 130px;
-    border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      background-color: whitesmoke;
-}
-
-.pro51{
-    width: 35px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    color: blue;
-}
-.profile53{
-    font-size: 25px;
-}
 
-.profile54{
-    font-size: 10px;
-    color: grey;
-    margin-top: 10px;
-}
+    gap: 8px;
 
-.profile55{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.pro52{
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px;
+    min-width: 150px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 600;
 }
 
 
+.press2 {
 
+    background: #f28c28;
 
-
-.profile62{
-    width: 390px;
-    height: 130px;
-    border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      background-color: whitesmoke;
-}
-
-.pro61{
-    width: 35px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: blue;
-}
-.profile63{
-    font-size: 25px;
-}
-
-.profile64{
-    font-size: 10px;
-    color: grey;
-    margin-top: 10px;
-}
-
-.profile65{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.pro62{
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-}
-
-
-
-.inform11{
-     
-    width: 1270px;
-    height: 370px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    margin-top: 30px;
-    padding-top: 10px;
-
-}
-
-.inform16{
-    margin-left: 20px;
-    
-}
-
-
-
-.inform12{
-    width: 390px;
-    height: 130px;
-    border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      background-color: whitesmoke;
-}
-
-.plus11{
-    width: 35px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: blue;
-}
-.inform13{
-    font-size: 25px;
-}
-
-.inform14{
-    font-size: 10px;
-    color: grey;
-    margin-top: 10px;
-}
-
-.inform15{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.plus12{
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-}
-
-.eye1{
-    display: flex;
-    gap: 30px;
-    margin-left: 20px;
-}
-.eye2{
-    display: flex;
-    gap: 30px;
-    margin-left: 20px;
-    margin-top: 20px;
-}
-
-
-
-
-
-
-.inform22{
-    width: 390px;
-    height: 130px;
-    border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      background-color: whitesmoke;
-}
-
-.plus21{
-    width: 35px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: blue;
-}
-.inform23{
-    font-size: 25px;
-}
-
-.inform24{
-    font-size: 10px;
-    color: grey;
-    margin-top: 10px;
-}
-
-.inform25{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.plus22{
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-}
-
-
-
-.inform32{
-    width: 390px;
-    height: 130px;
-    border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      background-color: whitesmoke;
-}
-
-.plus31{
-    width: 35px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: blue;
-}
-.inform33{
-    font-size: 20px;
-}
-
-.inform34{
-    font-size: 10px;
-    color: grey;
-    margin-top: 10px;
-}
-
-.inform35{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.plus32{
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-}
-
-
-
-
-
-.inform42{
-    width: 390px;
-    height: 130px;
-    border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      background-color: whitesmoke;
-}
-
-.plus41{
-    width: 35px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: blue;
-}
-.inform43{
-    font-size: 25px;
-}
-
-.inform44{
-    font-size: 10px;
-    color: grey;
-    margin-top: 10px;
-}
-
-.inform45{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.plus42{
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-}
-
-
-
-
-
-
-.lock11{
-     
-    width: 1270px;
-    height: 220px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    margin-top: 30px;
-    padding-top: 10px;
-
-}
-
-.lock16{
-    margin-left: 20px;
-    
-}
-
-
-.lock12{
-    width: 600px;
-    height: 130px;
-    border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      background-color: whitesmoke;
-}
-
-.kick11{
-    width: 35px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: blue;
-}
-.lock13{
-    font-size: 25px;
-}
-
-.lock14{
-    font-size: 10px;
-    color: grey;
-    margin-top: 10px;
-}
-
-.lock15{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.kick12{
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-}
-
-
-
-
-.lock22{
-    width: 600px;
-    height: 130px;
-    border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      background-color: whitesmoke;
-}
-
-.kick21{
-    width: 35px;
-    height: 30px;
-    background-color: white;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: blue;
-}
-.lock23{
-    font-size: 25px;
-}
-
-.lock24{
-    font-size: 10px;
-    color: grey;
-    margin-top: 10px;
-}
-
-.lock25{
-    font-weight: bold;
-    margin-top: 10px;
-}
-.kick22{
-    margin-left: 15px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 12px;
-}
-.lockup{
-    display: flex;
-    gap: 30px;
-    margin-left: 20px;
-}
-
-
-.press1{
-    margin-top: 50px;
-    margin-left: 500px;
-    gap: 10px;
-    display: flex;
-}
-
-.press2{
-    height: 30px;
-    background-color: blue;
     color: white;
-    width: 120px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
 }
 
 
-.press3{
-    height: 30px;
-    background-color: rgb(3, 110, 34);
+.press2:hover {
+
+    background: #df7515;
+}
+
+
+.press3 {
+
+    background: #171f4a;
+
     color: white;
-    width: 150px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+}
+
+
+.press3:hover {
+
+    background: #101633;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .profile1 {
+
+        margin-left: 240px;
+
+        width: calc(100% - 240px);
+
+        padding: 20px;
+    }
+
+    .ear1,
+    .ear2 {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .eye1 {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================
+   SMALL TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .profile1 {
+
+        margin-left: 220px;
+
+        width: calc(100% - 220px);
+
+        padding: 20px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .profile1 {
+
+        margin-left: 210px;
+
+        width: calc(100% - 210px);
+
+        padding: 15px;
+    }
+
+    .ear1,
+    .ear2,
+    .eye1,
+    .eye2 {
+
+        grid-template-columns: 1fr;
+    }
+
+    .lockup {
+
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .profile1 {
+
+        margin-left: 200px;
+
+        width: calc(100% - 200px);
+
+        padding: 12px;
+    }
+
+    .profile11,
+    .inform11,
+    .lock11 {
+
+        padding: 15px;
+    }
+
+    .press1 {
+
+        flex-direction: column;
+    }
+
+    .press2,
+    .press3 {
+
+        width: 100%;
+    }
+
 }

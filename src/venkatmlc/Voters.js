@@ -1,532 +1,1277 @@
-import React from "react";
-import "../style/Voters.css"
-import { LuDot } from "react-icons/lu";
-import { TiTick } from "react-icons/ti";
-import { RiMenu3Line } from "react-icons/ri";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "../style/Voters.css";
+
+import Navbar from "./Navbar";
 
 import { FaPlus } from "react-icons/fa6";
-import { LuImport } from "react-icons/lu"
-
-import { BiExport } from "react-icons/bi";
-
-
-import { FaDownload } from "react-icons/fa";
-import { IoPeople } from "react-icons/io5";
-import { FaRegClock } from "react-icons/fa6";
-import { IoMdMale } from "react-icons/io";
-import { IoMdFemale } from "react-icons/io";
-import { HiOutlineBuildingOffice } from "react-icons/hi2";
-import { CiMap } from "react-icons/ci";
-import { LuBell } from "react-icons/lu";
-import { GiRecycle } from "react-icons/gi";
-import { FaChild } from "react-icons/fa6";
-import { FaMandalorian } from "react-icons/fa6";
-import { MdOutlineCheckCircle } from "react-icons/md"
-import { LuUserRoundPlus } from "react-icons/lu";
-import { FiPlus } from "react-icons/fi";
+import { FaEdit } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
-import { IoMdHome } from "react-icons/io";
-import { TbReportSearch } from "react-icons/tb";
+import { FaDownload } from "react-icons/fa";
+import { BiExport } from "react-icons/bi";
+import { LuImport } from "react-icons/lu";
+import { IoPeople } from "react-icons/io5";
+import { TiTick } from "react-icons/ti";
 
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  CartesianGrid
-} from "recharts";
+function Voters() {
 
-const data = [
-  { category: "Male", turnout: 78 },
-  { category: "Female", turnout: 72 },
-  { category: "Others", turnout: 3 },
-  { category: "Overall", turnout: 75 }
-];
+    // =========================================
+    // FORM STATE
+    // =========================================
+
+    const [formData, setFormData] = useState({
+        name: "",
+        gender: "",
+        age: "",
+        mandal: "",
+        village: "",
+        phone: "",
+    });
+
+    // =========================================
+    // VOTERS STATE
+    // =========================================
+
+    const [voters, setVoters] = useState([]);
+
+    // =========================================
+    // EDIT ID
+    // =========================================
+
+    const [editId, setEditId] = useState(null);
+
+    // =========================================
+    // SEARCH
+    // =========================================
+
+    const [search, setSearch] = useState("");
+
+    // =========================================
+    // LOADING
+    // =========================================
+
+    const [loading, setLoading] = useState(false);
+
+    // =========================================
+    // FORM OPEN/CLOSE
+    // =========================================
+
+    const [showForm, setShowForm] = useState(false);
+
+    // =========================================
+    // BACKEND URL
+    // =========================================
+
+    const API_URL = "http://127.0.0.1:8000/voters";
 
 
+    // =========================================
+    // GET
+    // =========================================
+
+    const getVoters = async () => {
+
+        try {
+
+            setLoading(true);
+
+            const response = await fetch(API_URL);
+
+            if (!response.ok) {
+                throw new Error("Unable to fetch voters");
+            }
+
+            const data = await response.json();
+
+            setVoters(data);
+
+        } catch (error) {
+
+            console.error("GET Error:", error);
+
+            alert("Unable to load voters");
+
+        } finally {
+
+            setLoading(false);
+
+        }
+    };
 
 
+    // =========================================
+    // GET WHEN PAGE LOADS
+    // =========================================
+
+    useEffect(() => {
+
+        getVoters();
+
+    }, []);
 
 
+    // =========================================
+    // HANDLE INPUT
+    // =========================================
 
-function Voters (){
+    const handleChange = (e) => {
 
-    return(
-        <>
-        <div className="voterpage">
-            <div className="vote0">
-                <div>
-            <h1 className="vote">Voters Dashboard</h1>
-            <div className="vote3">
-            <p className="vote1">Ramagundam Assembly Constituency</p>
-            <TiTick  className="tick"/>
-            </div>
-            <div className="vote2">
-            <p>Constituency No. 209</p>
-            
-                <LuDot />
-             <p>
-                Ramagudam District, Telangana
-             </p>
-                             <LuDot />
-                             <p>
-                            Lok Sabha:Hyderbad
-                             </p>
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+
+    };
 
 
-                
-            </div>
-            </div>
-            <div className="vote4">
-                <button> <FaDownload /> Download Reciept
-</button>
-            </div>
-            </div>
-            <div className="pol">
-            <div className="vote5">
-                <div className="vote9">
-                <IoPeople  className="vote10"/>
-                <p className="vote6">Total Voters</p>
+    // =========================================
+    // POST
+    // =========================================
+
+    const handleAddVoter = async (e) => {
+
+        e.preventDefault();
+
+        if (
+            !formData.name ||
+            !formData.gender ||
+            !formData.age ||
+            !formData.mandal
+        ) {
+
+            alert(
+                "Please fill Name, Gender, Age and Mandal"
+            );
+
+            return;
+        }
+
+
+        try {
+
+            const response = await fetch(API_URL, {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json",
+                },
+
+                body: JSON.stringify({
+
+                    name: formData.name,
+
+                    gender: formData.gender,
+
+                    age: Number(formData.age),
+
+                    mandal: formData.mandal,
+
+                    village: formData.village,
+
+                    phone: formData.phone,
+
+                }),
+
+            });
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Unable to add voter"
+                );
+
+            }
+
+
+            const data = await response.json();
+
+
+            setVoters((prev) => [
+                ...prev,
+                data,
+            ]);
+
+
+            alert("Voter added successfully");
+
+
+            resetForm();
+
+
+        } catch (error) {
+
+            console.error("POST Error:", error);
+
+            alert("Unable to add voter");
+
+        }
+
+    };
+
+
+    // =========================================
+    // EDIT BUTTON
+    // =========================================
+
+    const handleEdit = (voter) => {
+
+        setEditId(voter.id);
+
+        setFormData({
+
+            name: voter.name || "",
+
+            gender: voter.gender || "",
+
+            age: voter.age || "",
+
+            mandal: voter.mandal || "",
+
+            village: voter.village || "",
+
+            phone: voter.phone || "",
+
+        });
+
+        setShowForm(true);
+
+    };
+
+
+    // =========================================
+    // PUT
+    // =========================================
+
+    const handleUpdate = async (e) => {
+
+        e.preventDefault();
+
+        if (!editId) {
+
+            alert("Please select voter to update");
+
+            return;
+        }
+
+
+        try {
+
+            const response = await fetch(
+                `${API_URL}/${editId}`,
+                {
+
+                    method: "PUT",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json",
+                    },
+
+                    body: JSON.stringify({
+
+                        name: formData.name,
+
+                        gender: formData.gender,
+
+                        age: Number(formData.age),
+
+                        mandal: formData.mandal,
+
+                        village: formData.village,
+
+                        phone: formData.phone,
+
+                    }),
+
+                }
+            );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Unable to update voter"
+                );
+
+            }
+
+
+            const updatedVoter =
+                await response.json();
+
+
+            setVoters((prev) =>
+                prev.map((voter) =>
+                    voter.id === editId
+                        ? updatedVoter
+                        : voter
+                )
+            );
+
+
+            alert("Voter updated successfully");
+
+
+            resetForm();
+
+
+        } catch (error) {
+
+            console.error("PUT Error:", error);
+
+            alert("Unable to update voter");
+
+        }
+
+    };
+
+
+    // =========================================
+    // DELETE
+    // =========================================
+
+    const handleDelete = async (id) => {
+
+        const confirmDelete = window.confirm(
+            "Are you sure you want to delete this voter?"
+        );
+
+
+        if (!confirmDelete) {
+
+            return;
+
+        }
+
+
+        try {
+
+            const response = await fetch(
+                `${API_URL}/${id}`,
+                {
+                    method: "DELETE",
+                }
+            );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Unable to delete voter"
+                );
+
+            }
+
+
+            setVoters((prev) =>
+                prev.filter(
+                    (voter) =>
+                        voter.id !== id
+                )
+            );
+
+
+            alert("Voter deleted successfully");
+
+
+        } catch (error) {
+
+            console.error(
+                "DELETE Error:",
+                error
+            );
+
+            alert("Unable to delete voter");
+
+        }
+
+    };
+
+
+    // =========================================
+    // RESET FORM
+    // =========================================
+
+    const resetForm = () => {
+
+        setFormData({
+
+            name: "",
+
+            gender: "",
+
+            age: "",
+
+            mandal: "",
+
+            village: "",
+
+            phone: "",
+
+        });
+
+        setEditId(null);
+
+        setShowForm(false);
+
+    };
+
+
+    // =========================================
+    // SEARCH FILTER
+    // =========================================
+
+    const filteredVoters = voters.filter(
+        (voter) => {
+
+            const searchText =
+                search.toLowerCase();
+
+            return (
+
+                voter.name
+                    ?.toLowerCase()
+                    .includes(searchText)
+
+                ||
+
+                voter.mandal
+                    ?.toLowerCase()
+                    .includes(searchText)
+
+                ||
+
+                voter.village
+                    ?.toLowerCase()
+                    .includes(searchText)
+
+                ||
+
+                voter.phone
+                    ?.toLowerCase()
+                    .includes(searchText)
+
+            );
+
+        }
+    );
+
+
+    // =========================================
+    // DOWNLOAD CSV
+    // =========================================
+
+    const handleExport = () => {
+
+        if (voters.length === 0) {
+
+            alert("No voters available");
+
+            return;
+
+        }
+
+
+        const headers =
+            "ID,Name,Gender,Age,Mandal,Village,Phone\n";
+
+
+        const rows = voters
+            .map(
+                (voter) =>
+                    `${voter.id},${voter.name},${voter.gender},${voter.age},${voter.mandal},${voter.village},${voter.phone}`
+            )
+            .join("\n");
+
+
+        const blob = new Blob(
+            [headers + rows],
+            {
+                type: "text/csv;charset=utf-8;",
+            }
+        );
+
+
+        const url =
+            URL.createObjectURL(blob);
+
+
+        const link =
+            document.createElement("a");
+
+
+        link.href = url;
+
+        link.download =
+            "voters.csv";
+
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        document.body.removeChild(link);
+
+        URL.revokeObjectURL(url);
+
+    };
+
+
+    // =========================================
+    // PRINT
+    // =========================================
+
+    const handlePrint = () => {
+
+        window.print();
+
+    };
+
+
+    return (
+
+        <div className="voters-page">
+
+            {/* ================= NAVBAR ================= */}
+
+            <Navbar />
+
+
+            {/* ================= MAIN ================= */}
+
+            <main className="voters-main">
+
+
+                {/* ================= HEADER ================= */}
+
+                <div className="voters-header">
+
+                    <div>
+
+                        <h1>
+                            Voters Dashboard
+                        </h1>
+
+                        <p>
+                            Ramagundam Assembly Constituency
+                        </p>
+
+                        <div className="constituency-text">
+
+                            <span>
+                                Constituency No. 209
+                            </span>
+
+                            <span>•</span>
+
+                            <span>
+                                Ramagundam District,
+                                Telangana
+                            </span>
+
+                            <span>•</span>
+
+                            <span>
+                                Lok Sabha: Hyderabad
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        className="download-btn"
+                        onClick={handlePrint}
+                    >
+
+                        <FaDownload />
+
+                        Download Receipt
+
+                    </button>
+
                 </div>
-                <p className="vote7">2,34,000</p>
-                <p className="vote8">Total Electors</p>
+
+
+                {/* ================= SUMMARY CARDS ================= */}
+
+                <div className="voter-summary">
+
+
+                    <div className="summary-card orange-card">
+
+                        <IoPeople />
+
+                        <p>
+                            Total Voters
+                        </p>
+
+                        <h2>
+                            {voters.length}
+                        </h2>
+
+                        <span>
+                            Total Electors
+                        </span>
+
+                    </div>
+
+
+                    <div className="summary-card green-card">
+
+                        <TiTick />
+
+                        <p>
+                            Male Voters
+                        </p>
+
+                        <h2>
+                            {
+                                voters.filter(
+                                    (v) =>
+                                        v.gender === "Male"
+                                ).length
+                            }
+                        </h2>
+
+                        <span>
+                            Registered Male Voters
+                        </span>
+
+                    </div>
+
+
+                    <div className="summary-card blue-card">
+
+                        <TiTick />
+
+                        <p>
+                            Female Voters
+                        </p>
+
+                        <h2>
+                            {
+                                voters.filter(
+                                    (v) =>
+                                        v.gender === "Female"
+                                ).length
+                            }
+                        </h2>
+
+                        <span>
+                            Registered Female Voters
+                        </span>
+
+                    </div>
+
+
+                    <div className="summary-card purple-card">
+
+                        <TiTick />
+
+                        <p>
+                            Total Mandals
+                        </p>
+
+                        <h2>
+                            {
+                                new Set(
+                                    voters.map(
+                                        (v) =>
+                                            v.mandal
+                                    )
+                                ).size
+                            }
+                        </h2>
+
+                        <span>
+                            Mandals Covered
+                        </span>
+
+                    </div>
+
                 </div>
 
 
+                {/* ================= QUICK LINKS ================= */}
+
+                <div className="quick-links">
+
+                    <h3>
+                        Quick Links
+                    </h3>
 
 
-                  <div className="vote11">
-                <div className="vote15">
-                <TiTick className="vote16"/>
-                <p className="vote12">Votes cast</p>
-                <p>(2024)</p>
-                </div>
-                <p className="vote13">1,79,900</p>
-                <p className="vote14">Total Votes Polled</p>
-                </div>
+                    <div className="quick-link-buttons">
 
-           
+                        <Link
+                            to="/dashboard"
+                            className="quick-link"
+                        >
+                            Dashboard
+                        </Link>
 
 
-
-           
-                  <div className="vote17">
-                <div className="vote21">
-                <FaRegClock   className="vote22"/>
-                <p className="vote18">Voters Turnout</p>
-                </div>
-                <p className="vote19">82.9%</p>
-                <p className="vote20">In 2024 Elections</p>
-                </div>
+                        <Link
+                            to="/voters"
+                            className="quick-link active"
+                        >
+                            Voters
+                        </Link>
 
 
-
-         
-                  <div className="vote23">
-                <div className="vote27">
-                <IoMdMale  className="vote28"/>
-                <p className="vote24">Male Voters</p>
-                </div>
-                <p className="vote25">1,10,000</p>
-                <p className="vote26">50.29% Total</p>
-                </div>
+                        <Link
+                            to="/developmentworks"
+                            className="quick-link"
+                        >
+                            Development Works
+                        </Link>
 
 
-
-                  
-                  <div className="vote29">
-                <div className="vote33">
-                <IoMdFemale  className="vote34"/>
-                <p className="vote30">Female Voters</p>
-                </div>
-                <p className="vote31">1,08,500</p>
-                <p className="vote32">49.71%Total</p>
-                </div>
-            
+                        <Link
+                            to="/reports"
+                            className="quick-link"
+                        >
+                            Reports
+                        </Link>
 
 
+                        <Link
+                            to="/grievances"
+                            className="quick-link"
+                        >
+                            Grievances
+                        </Link>
 
+                    </div>
 
-         </div>
-         
-             <div className="vote37">
-                <div className="vote41">
-                <IoMdFemale  className="vote42"/>
-                <p className="vote38">New Voters</p>
-                <p>(2024)</p>
-                </div>
-                <p className="vote39">3,256</p>
-                <p className="vote40">Add This Year</p>
                 </div>
 
 
-                <div className="gender22">
-<div className="constituency-card">
-  <div className="card-header">
-    <HiOutlineBuildingOffice className="card-icon" />
-    <h4>Constituency Information</h4>
-  </div>
+                {/* ================= VOTER TABLE ================= */}
 
-  <div className="info-row">
-    <p>Constituency No.</p>
-    <span>109</span>
-  </div>
-
-  <div className="info-row">
-    <p>State</p>
-    <span>Telangana</span>
-  </div>
-
-  <div className="info-row">
-    <p>District</p>
-    <span>Karimnagar</span>
-  </div>
-
-  <div className="info-row">
-    <p>Lok Sabha Constituency</p>
-    <span>Hyderabad</span>
-  </div>
-
-  <div className="info-row">
-    <p>Current MLA (2024)</p>
-    <span className="padi">Padi Kaushik Reddy (TRS)</span>
-  </div>
-
-  <div className="info-row">
-    <p>Established</p>
-    <span>1951</span>
-  </div>
-</div>
+                <div className="voter-table-section">
 
 
-<div className="gender-card">
-  <h3 className="genderline">Gender Distribution</h3>
+                    <div className="table-header">
 
-  <div className="pie-chart"></div>
+                        <div>
 
-  <div className="legend">
-    <div className="legend-item">
-      <span className="color male"></span>
-      <p>Male - 1,10,000 (50.29%)</p>
-    </div>
+                            <h3>
+                                Voter Information
+                            </h3>
 
-    <div className="legend-item">
-      <span className="color female"></span>
-      <p>Female - 1,08,500 (49.71%)</p>
-    </div>
-  </div>
-  
-</div>
+                            <p>
+                                Manage all registered
+                                voters
+                            </p>
+
+                        </div>
 
 
-
-    <div className="turnout-card">
-      <h3>Voter Turnout Till Date</h3>
-
-      <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={data}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="category" />
-          <YAxis unit="%" />
-          <Tooltip />
-          <Bar dataKey="turnout" fill="#0d6efd" radius={[8, 8, 0, 0]} />
-        </BarChart>
-      </ResponsiveContainer>
-    </div>
-  
+                        <div className="table-actions">
 
 
+                            <button
+                                className="add-btn"
+                                onClick={() => {
+
+                                    resetForm();
+
+                                    setShowForm(true);
+
+                                }}
+                            >
+
+                                <FaPlus />
+
+                                Add Voter
+
+                            </button>
 
 
+                            <button
+                                className="action-btn"
+                                onClick={handleExport}
+                            >
 
-</div>
-<div className="royal">
-<div className="tabl1">
-    <div className="tabl2">
-    <RiMenu3Line />
-    <h4 c>Mandal Wise Voters Summary</h4>
-    </div>
-    <div className="tabl3">
-    <button><FaPlus /><span>
-        Add Voters</span>
-    </button>
-    <button><BiExport /><span>Import Excel</span></button>
-    <button><LuImport /><span>Export Excel</span></button>
-    <input type="name" placeholder="Search Mandal"></input>
-    </div>
- 
-  
- <table className="table table-hover">
-    <thead>
-        <tr>
-            <th>S.NO</th>
-            <th>Mandal</th>
-            <th>Male Voters</th>
-            <th>Female Voters</th>
-            <th>Total Voters</th>
-            <th>% of Total</th>
-        </tr>
-    </thead>
+                                <BiExport />
 
-    <tbody>
-        <tr>
-            <td>1</td>
-            <td>Huzurabad</td>
-            <td>32,450</td>
-            <td>31,820</td>
-            <td>64,270</td>
-            <td>29.36%</td>
-        </tr>
+                                Export Excel
 
-        <tr>
-            <td>2</td>
-            <td>Jammikunta</td>
-            <td>28,760</td>
-            <td>27,980</td>
-            <td>56,740</td>
-            <td>25.91%</td>
-        </tr>
-
-        <tr>
-            <td>3</td>
-            <td>Veenavanka</td>
-            <td>18,540</td>
-            <td>18,220</td>
-            <td>36,760</td>
-            <td>16.79%</td>
-        </tr>
-
-         <tr>
-            <td>4</td>
-            <td>Kamalapur</td>
-            <td>21,540</td>
-            <td>19,231</td>
-            <td>26,700</td>
-            <td>26.23%</td>
-        </tr>
-
-        
-         <tr>
-            <td>5</td>
-            <td>Ellanthakunta</td>
-            <td>34,690</td>
-            <td>18,850</td>
-            <td>12,600</td>
-            <td>12.23%</td>
-        </tr>
-
-        <tr className="hd">
-            <td></td>
-            <td>Total</td>
-            <td>1,10,000</td>
-            <td>1,08,500</td>
-            <td>2,18,859</td>
-            <td>100.00%</td>
-        </tr>
-    </tbody>
-</table>
-</div >
- <div className="royal1">
-  <div className="royal2">
-    <CiMap  className="royal3"/>
-    <h4>Constituency map</h4>
-    </div>
-    <div className="royal4">
-    <p>Jammikunta</p>
-    </div>
-    <div className="re1">
-    <div className="royal5">
-    <span>Huzurabad</span>
-    </div>
-    <div className="royal6">
-    <span>Veenavanka</span>
-    </div>
-    </div>
-    <div className="ree2">
-    <div className="royal7">
-    <span>Kamalapur
-    </span>
-    </div>
-    <div className="royal8">
-    <span>
-      Ellanthakunta
-    </span>
-    </div>
-    </div>
-    <div className="re3">
-    <div className="royal9">
-    <span>5 Mandals</span>
-    </div>
-    <div className="royal10">
-    <span>280</span>
-    </div>
-    </div>
-    <div className="royal11">
-    <p>Total Booths</p>
-    </div>
-    </div>
-  </div>
+                            </button>
 
 
+                            <button
+                                className="action-btn"
+                                onClick={() =>
+                                    alert(
+                                        "Import functionality can be connected to your backend."
+                                    )
+                                }
+                            >
 
-<div className="flame">
+                                <LuImport />
 
-<div className="bajaj">
-  <div className="bajaj1">
-     
-<LuBell  className="bajaj2"/>
-<h4>Recent Voter Activities</h4>
-<button className="bajaj3">View All</button>
-</div>
+                                Import Excel
 
-<div className="bajaj50">
-<div className="bajaj4">
-  <TiTick className="bajaj9"/>
-  <div className="bajaj8">
-  <span className="bajaj5">New Voter Registration completed</span>
-  <span className="bajaj6">125 New voters added in jammikunta mandal </span>
-  </div>
+                            </button>
 
-  <span className="bajaj7">10:30AM</span>
-</div>
+                        </div>
+
+                    </div>
 
 
-<div className="bajaj14">
-<GiRecycle className="bajaj19"/>
-<div className="bajaj18">
-<span className="bajaj15">Voters data updated</span>
-<span className="bajaj16">Voter list updated for 2024 elections</span>
-</div>
-<span className="bajaj17">yesterday</span>
-</div>
+                    {/* ================= SEARCH ================= */}
+
+                    <div className="search-box">
+
+                        <IoSearch />
+
+                        <input
+                            type="text"
+                            placeholder="Search voter, mandal, village or phone..."
+                            value={search}
+                            onChange={(e) =>
+                                setSearch(
+                                    e.target.value
+                                )
+                            }
+                        />
+
+                    </div>
 
 
-<div className="bajaj24">
-   <TiTick className="bajaj29" />
-   <div className="bajaj28">
-   <span className="bajaj25">Votercorrection completed</span>
-   <span className="bajaj26">342 correction processed</span>
-   </div>
-   <span className="bajaj27">21 may 2024</span>
+                    {/* ================= LOADING ================= */}
 
-</div>
+                    {loading && (
 
-<div className="bajaj34">
-  <GiRecycle className="bajaj39" />
-  <div className="bajaj38">
-  <span className="bajaj35">Vote transfer processed</span>
-  <span className="bajaj36">84 voters transfer requests completed</span>
-  </div>
-  <span className="bajaj37">20 may 2024</span>
-</div>
-</div>
-</div>
+                        <div className="loading">
+                            Loading voters...
+                        </div>
 
-<div className="flame1">
-
-<div className="flame2">
-<FaChild />
-<h4>Beneficiaries Summary </h4>
-<button className="flame3">View All</button>
-</div>
-
-<div className="flame10">
-<div className="flame8">
-  <FaChild className="flame4" />
-<span className="flame5">18,742</span>
-<span className="flame6">Total Beneficiaries</span>
-<span className="flame7">Govt schemes</span>
-</div>
+                    )}
 
 
+                    {/* ================= TABLE ================= */}
 
-<div className="flame18">
-  <FaMandalorian className="flame14" />
-<span className="flame15">15,890</span>
-<span className="flame16">Families Covered</span>
-<span className="flame17">Across Schemes</span>
-  
-</div>
-</div>
+                    {!loading && (
 
-<div className="flame20">
-<div className="flame28">
-  <MdOutlineCheckCircle className="flame24"/>
-<span className="flame25">18,742</span>
-<span className="flame26">Total Beneficiaries</span>
-<span className="flame27">Govt schemes</span>
-  
-</div>
+                        <div className="table-container">
 
+                            <table>
 
-<div className="flame38">
-  <LuUserRoundPlus className="flame34" />
+                                <thead>
 
-<span className="flame35">18,742</span>
-<span className="flame36">Total Beneficiaries</span>
-<span className="flame37">Govt schemes</span>
-  
-</div>
-</div>
+                                    <tr>
 
+                                        <th>
+                                            S.No
+                                        </th>
 
-</div>
+                                        <th>
+                                            Name
+                                        </th>
 
+                                        <th>
+                                            Gender
+                                        </th>
 
+                                        <th>
+                                            Age
+                                        </th>
 
-</div>
+                                        <th>
+                                            Mandal
+                                        </th>
 
-<div className="tvs">
-  <div className="tvs1">
-  <FiPlus />
-  <h5 className="tvs2">Quick Actions</h5>
-  </div>
-<div className="tvs3">
-  <div className="tvs4">
-      <LuUserRoundPlus className="tvs5"/>
-      <span className="tvs6">Add Voter</span>
-      </div>
+                                        <th>
+                                            Village
+                                        </th>
 
-<div className="tvs14">
-          <BiExport className="tvs15"/>
-      <span>Bulk Upload</span>
-      </div>
+                                        <th>
+                                            Phone
+                                        </th>
 
-      <div className="tvs24">
+                                        <th>
+                                            Actions
+                                        </th>
 
-<IoSearch className="tvs25"/>
-<span>Voter search</span>
-      </div>
+                                    </tr>
+
+                                </thead>
 
 
-      <div className="tvs34">
-<IoMdHome className="tvs35" />
-<span>Add Boots</span>
-      </div>
+                                <tbody>
 
-      <div className="tvs44">
-        <LuImport className="tvs45"/>
-        <span>Download List</span>
-      </div>
+                                    {filteredVoters.length ===
+                                    0 ? (
 
-      <div className="tvs54">
-        <TbReportSearch className="tvs55"/>
-        <span>Generate Report</span>
-      </div>
-    </div>
+                                        <tr>
 
-</div>
+                                            <td
+                                                colSpan="8"
+                                                className="no-data"
+                                            >
+                                                No voters found
+                                            </td>
 
+                                        </tr>
+
+                                    ) : (
+
+                                        filteredVoters.map(
+                                            (voter, index) => (
+
+                                                <tr
+                                                    key={
+                                                        voter.id
+                                                    }
+                                                >
+
+                                                    <td>
+                                                        {index + 1}
+                                                    </td>
+
+                                                    <td>
+                                                        {
+                                                            voter.name
+                                                        }
+                                                    </td>
+
+                                                    <td>
+                                                        {
+                                                            voter.gender
+                                                        }
+                                                    </td>
+
+                                                    <td>
+                                                        {
+                                                            voter.age
+                                                        }
+                                                    </td>
+
+                                                    <td>
+                                                        {
+                                                            voter.mandal
+                                                        }
+                                                    </td>
+
+                                                    <td>
+                                                        {
+                                                            voter.village
+                                                        }
+                                                    </td>
+
+                                                    <td>
+                                                        {
+                                                            voter.phone
+                                                        }
+                                                    </td>
+
+                                                    <td>
+
+                                                        <div className="action-buttons">
+
+                                                            <button
+                                                                className="edit-btn"
+                                                                onClick={() =>
+                                                                    handleEdit(
+                                                                        voter
+                                                                    )
+                                                                }
+                                                            >
+
+                                                                <FaEdit />
+
+                                                                Edit
+
+                                                            </button>
+
+
+                                                            <button
+                                                                className="delete-btn"
+                                                                onClick={() =>
+                                                                    handleDelete(
+                                                                        voter.id
+                                                                    )
+                                                                }
+                                                            >
+
+                                                                <FaTrash />
+
+                                                                Delete
+
+                                                            </button>
+
+                                                        </div>
+
+                                                    </td>
+
+                                                </tr>
+
+                                            )
+                                        )
+
+                                    )}
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    )}
+
+                </div>
+
+
+                {/* ================= OTHER LINKS ================= */}
+
+                <div className="bottom-links">
+
+                    <Link to="/dashboard">
+                        Go to Dashboard →
+                    </Link>
+
+                    <Link to="/developmentworks">
+                        Development Works →
+                    </Link>
+
+                    <Link to="/reports">
+                        Generate Reports →
+                    </Link>
+
+                </div>
+
+
+                {/* ================= ADD / EDIT FORM ================= */}
+
+                {showForm && (
+
+                    <div className="modal-overlay">
+
+                        <div className="voter-modal">
+
+
+                            <div className="modal-header">
+
+                                <h2>
+                                    {editId
+                                        ? "Update Voter"
+                                        : "Add Voter"}
+                                </h2>
+
+                                <button
+                                    onClick={resetForm}
+                                    className="close-btn"
+                                >
+                                    ×
+                                </button>
+
+                            </div>
+
+
+                            <form
+                                onSubmit={
+                                    editId
+                                        ? handleUpdate
+                                        : handleAddVoter
+                                }
+                            >
+
+
+                                <div className="form-grid">
+
+
+                                    <div className="form-group">
+
+                                        <label>
+                                            Voter Name
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            value={
+                                                formData.name
+                                            }
+                                            onChange={
+                                                handleChange
+                                            }
+                                            placeholder="Enter voter name"
+                                        />
+
+                                    </div>
+
+
+                                    <div className="form-group">
+
+                                        <label>
+                                            Gender
+                                        </label>
+
+                                        <select
+                                            name="gender"
+                                            value={
+                                                formData.gender
+                                            }
+                                            onChange={
+                                                handleChange
+                                            }
+                                        >
+
+                                            <option value="">
+                                                Select Gender
+                                            </option>
+
+                                            <option value="Male">
+                                                Male
+                                            </option>
+
+                                            <option value="Female">
+                                                Female
+                                            </option>
+
+                                            <option value="Other">
+                                                Other
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+
+                                    <div className="form-group">
+
+                                        <label>
+                                            Age
+                                        </label>
+
+                                        <input
+                                            type="number"
+                                            name="age"
+                                            value={
+                                                formData.age
+                                            }
+                                            onChange={
+                                                handleChange
+                                            }
+                                            placeholder="Enter age"
+                                        />
+
+                                    </div>
+
+
+                                    <div className="form-group">
+
+                                        <label>
+                                            Mandal
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            name="mandal"
+                                            value={
+                                                formData.mandal
+                                            }
+                                            onChange={
+                                                handleChange
+                                            }
+                                            placeholder="Enter mandal"
+                                        />
+
+                                    </div>
+
+
+                                    <div className="form-group">
+
+                                        <label>
+                                            Village
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            name="village"
+                                            value={
+                                                formData.village
+                                            }
+                                            onChange={
+                                                handleChange
+                                            }
+                                            placeholder="Enter village"
+                                        />
+
+                                    </div>
+
+
+                                    <div className="form-group">
+
+                                        <label>
+                                            Phone
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            name="phone"
+                                            value={
+                                                formData.phone
+                                            }
+                                            onChange={
+                                                handleChange
+                                            }
+                                            placeholder="Enter phone"
+                                        />
+
+                                    </div>
+
+                                </div>
+
+
+                                <div className="modal-buttons">
+
+                                    <button
+                                        type="button"
+                                        className="cancel-btn"
+                                        onClick={
+                                            resetForm
+                                        }
+                                    >
+                                        Cancel
+                                    </button>
+
+
+                                    <button
+                                        type="submit"
+                                        className="submit-btn"
+                                    >
+
+                                        {editId
+                                            ? "Update Voter"
+                                            : "Add Voter"}
+
+                                    </button>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                )}
+
+            </main>
 
         </div>
+    );
+}
 
-
-
-
-        
-        </>
-    )
-
-}export default Voters;
+export default Voters;

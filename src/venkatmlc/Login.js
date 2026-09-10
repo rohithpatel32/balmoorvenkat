@@ -20,18 +20,20 @@ function Login() {
     };
 
     const handleLogin = (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        if (
-            form.email === "rohith@gmail.com" &&
-            form.password === "123456"
-        ) {
-            alert("Login successful");
-            navigate("/dashboard");
-        } else {
-            alert("Invalid username or password");
-        }
-    };
+    console.log(form);
+
+    if (
+        form.email === "rohith@gmail.com" &&
+        form.password === "123456"
+    ) {
+        alert("Login successful");
+        navigate("/dashboard");
+    } else {
+        alert("Invalid username or password");
+    }
+};
 
     return (
         <div className="login-page">

@@ -1,0 +1,410 @@
+/* =========================
+   Main Grievances Page
+========================= */
+
+.give {
+  min-height: 100vh;
+  margin-left: 230px;
+  padding: 30px;
+  background-color: #f5f7fb;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   Page Header
+========================= */
+
+.give1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.give2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+}
+
+
+/* =========================
+   Add Complaint Button
+========================= */
+
+.give3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 11px 18px;
+
+  border: none;
+  border-radius: 7px;
+
+  background-color: #2563eb;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.give3:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.give3 svg {
+  font-size: 14px;
+}
+
+
+/* =========================
+   Search + Filter
+========================= */
+
+.give4 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background-color: white;
+
+  padding: 18px;
+
+  margin-bottom: 20px;
+
+  border-radius: 8px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Search Input */
+
+.give5 {
+  width: 350px;
+  height: 42px;
+
+  padding: 0 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+
+  outline: none;
+
+  font-size: 14px;
+
+  box-sizing: border-box;
+}
+
+.give5:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+
+/* Status Select */
+
+.give4 select {
+  width: 160px;
+  height: 42px;
+
+  padding: 0 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+
+  background-color: white;
+
+  font-size: 14px;
+
+  color: #333;
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+.give4 select:focus {
+  border-color: #2563eb;
+}
+
+
+/* =========================
+   Table Container
+========================= */
+
+.give table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background-color: white;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================
+   Table Header
+========================= */
+
+.give table thead {
+  background-color: #f1f5f9;
+}
+
+.give table th {
+  padding: 15px 14px;
+
+  text-align: left;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  color: #374151;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+
+/* =========================
+   Table Body
+========================= */
+
+.give table td {
+  padding: 15px 14px;
+
+  font-size: 14px;
+
+  color: #4b5563;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.give table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.give table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.give table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================
+   Status
+========================= */
+
+.give table td:nth-child(6) {
+  font-weight: 600;
+  color: #d97706;
+}
+
+
+/* =========================
+   Action Buttons Container
+========================= */
+
+.give11 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* =========================
+   Common Action Button
+========================= */
+
+.give12,
+.give14,
+.give16 {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+
+/* =========================
+   View Button
+========================= */
+
+.give12 {
+  background-color: #e0f2fe;
+}
+
+.give12:hover {
+  background-color: #bae6fd;
+}
+
+.give13 {
+  color: #0284c7;
+  font-size: 15px;
+}
+
+
+/* =========================
+   Edit Button
+========================= */
+
+.give14 {
+  background-color: #fef3c7;
+}
+
+.give14:hover {
+  background-color: #fde68a;
+}
+
+.give15 {
+  color: #d97706;
+  font-size: 15px;
+}
+
+
+/* =========================
+   Delete Button
+========================= */
+
+.give16 {
+  background-color: #fee2e2;
+}
+
+.give16:hover {
+  background-color: #fecaca;
+}
+
+.give17 {
+  color: #dc2626;
+  font-size: 16px;
+}
+
+
+/* =========================
+   GET Component
+========================= */
+
+.give > div:last-child {
+  margin-top: 25px;
+}
+
+
+/* =========================
+   Responsive Design
+========================= */
+
+@media (max-width: 1000px) {
+
+  .give {
+    margin-left: 200px;
+    padding: 20px;
+  }
+
+  .give5 {
+    width: 280px;
+  }
+
+  .give table {
+    font-size: 13px;
+  }
+
+  .give table th,
+  .give table td {
+    padding: 12px 10px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .give {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .give1 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .give3 {
+    width: 100%;
+  }
+
+  .give4 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .give5 {
+    width: 100%;
+  }
+
+  .give4 select {
+    width: 100%;
+  }
+
+  .give table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .give {
+    padding: 15px;
+  }
+
+  .give2 {
+    font-size: 23px;
+  }
+
+  .give4 {
+    padding: 12px;
+  }
+
+  .give table th,
+  .give table td {
+    padding: 10px 8px;
+  }
+
+  .give11 {
+    gap: 5px;
+  }
+
+  .give12,
+  .give14,
+  .give16 {
+    width: 30px;
+    height: 30px;
+  }
+}

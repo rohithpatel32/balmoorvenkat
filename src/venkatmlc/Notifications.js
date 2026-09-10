@@ -1,194 +1,280 @@
-import React from "react";
+import React, { useState } from "react";
 import "../style/Notifications.css";
+
 import { LuPlus } from "react-icons/lu";
-import { FaEye } from "react-icons/fa";
-import { FaEdit } from "react-icons/fa";
+import { FaEye, FaEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
 import { IoIosNotifications } from "react-icons/io";
 
+import Navbar from "./Navbar";
 
-function Notifications (){
+function Notifications() {
+    const [search, setSearch] = useState("");
+    const [priority, setPriority] = useState("all");
+    const [status, setStatus] = useState("all");
 
-    return(
-        <>
-        <div className="ntf">
-        <div className="notification">
-            <div className="not">
-                <h2 className="not1">Notifications</h2>
-                <button className="not2"><LuPlus  className="not4"/> New Notification</button>
-            </div>
-            <div className="not5">
-                <input type="name"  placeholder=" Search notifications" className="not7"></input>
-              
-<div  className="not6">
-<select id="priority" name="priority">
-  <option value="all">All Priorities</option>
-  <option value="high">High</option>
-  <option value="medium">Medium</option>
-  <option value="low">Low</option>
-</select>
+    const notifications = [
+        {
+            id: 1,
+            title: "Meeting Reminder",
+            message: "Village meeting tomorrow at 10:30 AM",
+            date: "10-July-2026",
+            priority: "High",
+            status: "Unread",
+        },
+        {
+            id: 2,
+            title: "Expense Approved",
+            message: "Road Construction Payment Approved",
+            date: "15-June-2026",
+            priority: "Medium",
+            status: "Read",
+        },
+        {
+            id: 3,
+            title: "New Grievance",
+            message: "Water Supply Complaint Received",
+            date: "17-July-2026",
+            priority: "High",
+            status: "Unread",
+        },
+        {
+            id: 4,
+            title: "Project Completed",
+            message: "Street light installation completed",
+            date: "20-July-2026",
+            priority: "Low",
+            status: "Read",
+        },
+        {
+            id: 5,
+            title: "New Voter Registered",
+            message: "One new voter added successfully",
+            date: "23-July-2026",
+            priority: "Medium",
+            status: "Unread",
+        },
+    ];
 
+    const filteredNotifications = notifications.filter((item) => {
+        const searchText = search.toLowerCase();
 
-<select id="status" name="status">
-  <option value="all">All Status</option>
-  <option value="unread">Unread</option>
-  <option value="read">Read</option>
-</select>
-</div>
-            </div>
-            <div className="sai">
-            <div className="not8">
-<IoIosNotifications className="not9" />
-<span className="not10">Total Notifications</span>
-<h2 className="not11">128</h2>
-            </div>
+        const matchesSearch =
+            item.title.toLowerCase().includes(searchText) ||
+            item.message.toLowerCase().includes(searchText);
 
-               <div className="not18">
-<IoIosNotifications  className="not19"/>
-<span className="not20"> Unread</span>
-<h2 className="not21">38</h2>
-            </div>
+        const matchesPriority =
+            priority === "all" ||
+            item.priority.toLowerCase() === priority;
 
+        const matchesStatus =
+            status === "all" ||
+            item.status.toLowerCase() === status;
 
-                       <div className="not28">
-<IoIosNotifications  className="not29"/>
-<span className="not30"> Read</span>
-<h2 className="not31">90</h2>
-            </div>
-            </div>
+        return matchesSearch && matchesPriority && matchesStatus;
+    });
 
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Message</th>
-                            <th>Date</th>
-                            <th>Priority</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Meeting Remainder</td>
-                            <td>Village meeting tommorow at 10:30Am</td>
-                            <td>10-july-2026</td>
-                            <td>High</td>
-                            <td>Unread</td>
-                            <td>
-                                  <div className="sea">
-                                <div className="sea1">
-                            <FaEye />
-                                </div>
-                                <div className="sea2">
-                                    <FaEdit />
-                                    </div>
-                                <div className="sea3">
-                                    <MdOutlineDelete />
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+    const totalNotifications = notifications.length;
 
-                          <tr>
-                            <td>2</td>
-                            <td>Expense Approved</td>
-                            <td>Read Construction Payment Approved</td>
-                            <td>15-june-2026</td>
-                            <td>Medium</td>
-                            <td>Read</td>
-                            <td>
-                                  <div className="sea">
-                                <div className="sea1">
-                            <FaEye />
-                                </div>
-                                <div className="sea2">
-                                    <FaEdit />
-                                    </div>
-                                <div className="sea3">
-                                    <MdOutlineDelete />
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+    const unreadCount = notifications.filter(
+        (item) => item.status === "Unread"
+    ).length;
 
+    const readCount = notifications.filter(
+        (item) => item.status === "Read"
+    ).length;
 
-                        <tr>
-                            <td>3</td>
-                            <td>New Griviance</td>
-                            <td>Water Complaint Supply Recieved</td>
-                            <td>17-july-2026</td>
-                            <td>High</td>
-                            <td>Unead</td>
-                            <td>
-                                 <div className="sea">
-                                <div className="sea1">
-                            <FaEye />
-                                </div>
-                                <div className="sea2">
-                                    <FaEdit />
-                                    </div>
-                                <div className="sea3">
-                                    <MdOutlineDelete />
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+    return (
+        <div className="notifications-page">
 
-                         <tr>
-                            <td>4</td>
-                            <td>Project Completed</td>
-                            <td>Street light installation completed</td>
-                            <td>20-july-2026</td>
-                            <td>Low</td>
-                            <td>Read</td>
-                            <td>
-                               <div className="sea">
-                                <div className="sea1">
-                            <FaEye />
-                                </div>
-                                <div className="sea2">
-                                    <FaEdit />
-                                    </div>
-                                <div className="sea3">
-                                    <MdOutlineDelete />
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+            <Navbar />
 
+            <main className="notification-content">
 
-                        
-                         <tr>
-                            <td>5</td>
-                            <td>New Vote Registered</td>
-                            <td>One new vote added succesfully</td>
-                            <td>23-july-2026</td>
-                            <td>Medium</td>
-                            <td>Unread</td>
-                            <td>
-                                <div className="sea">
-                                <div className="sea1">
-                            <FaEye />
-                                </div>
-                                <div className="sea2">
-                                    <FaEdit />
-                                    </div>
-                                <div className="sea3">
-                                    <MdOutlineDelete />
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                {/* HEADER */}
+                <div className="notification-header">
+
+                    <div>
+                        <h2>Notifications</h2>
+                        <p>Manage all your notifications</p>
+                    </div>
+
+                    <button className="new-notification-btn">
+                        <LuPlus />
+                        New Notification
+                    </button>
+
+                </div>
+
+                {/* SEARCH AND FILTER */}
+                <div className="notification-filters">
+
+                    <input
+                        type="text"
+                        placeholder="Search notifications"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+
+                    <select
+                        value={priority}
+                        onChange={(e) => setPriority(e.target.value)}
+                    >
+                        <option value="all">All Priorities</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+
+                    <select
+                        value={status}
+                        onChange={(e) => setStatus(e.target.value)}
+                    >
+                        <option value="all">All Status</option>
+                        <option value="unread">Unread</option>
+                        <option value="read">Read</option>
+                    </select>
+
+                </div>
+
+                {/* STATISTICS */}
+                <div className="notification-stats">
+
+                    <div className="stat-card">
+                        <IoIosNotifications className="stat-icon" />
+
+                        <span>Total Notifications</span>
+
+                        <h2>{totalNotifications}</h2>
+                    </div>
+
+                    <div className="stat-card">
+                        <IoIosNotifications className="stat-icon" />
+
+                        <span>Unread</span>
+
+                        <h2>{unreadCount}</h2>
+                    </div>
+
+                    <div className="stat-card">
+                        <IoIosNotifications className="stat-icon" />
+
+                        <span>Read</span>
+
+                        <h2>{readCount}</h2>
+                    </div>
+
+                </div>
+
+                {/* TABLE */}
+                <div className="notification-table-wrapper">
+
+                    <table className="notification-table">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            {filteredNotifications.length > 0 ? (
+
+                                filteredNotifications.map((item) => (
+
+                                    <tr key={item.id}>
+
+                                        <td>{item.id}</td>
+
+                                        <td className="notification-title">
+                                            {item.title}
+                                        </td>
+
+                                        <td className="notification-message">
+                                            {item.message}
+                                        </td>
+
+                                        <td>{item.date}</td>
+
+                                        <td>
+                                            <span
+                                                className={`priority-badge ${item.priority.toLowerCase()}`}
+                                            >
+                                                {item.priority}
+                                            </span>
+                                        </td>
+
+                                        <td>
+                                            <span
+                                                className={`status-badge ${item.status.toLowerCase()}`}
+                                            >
+                                                {item.status}
+                                            </span>
+                                        </td>
+
+                                        <td>
+
+                                            <div className="action-buttons">
+
+                                                <button
+                                                    className="view-btn"
+                                                    title="View"
+                                                >
+                                                    <FaEye />
+                                                </button>
+
+                                                <button
+                                                    className="edit-btn"
+                                                    title="Edit"
+                                                >
+                                                    <FaEdit />
+                                                </button>
+
+                                                <button
+                                                    className="delete-btn"
+                                                    title="Delete"
+                                                >
+                                                    <MdOutlineDelete />
+                                                </button>
+
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+
+                                ))
+
+                            ) : (
+
+                                <tr>
+                                    <td
+                                        colSpan="7"
+                                        className="no-data"
+                                    >
+                                        No notifications found
+                                    </td>
+                                </tr>
+
+                            )}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </main>
 
         </div>
-        </div>
-        </>
-    )
-}export default Notifications;
+    );
+}
+
+export default Notifications;

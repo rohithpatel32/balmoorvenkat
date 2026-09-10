@@ -7,6 +7,7 @@ import { FaBirthdayCake } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaIdCardClip } from "react-icons/fa6";
 import { FcDepartment } from "react-icons/fc";
+import Navbar from "./Navbar";
 
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
@@ -19,6 +20,7 @@ function Profile(){
     return(
         <>
         <div className="profile">
+                     <Navbar />
             <div className="profile1">
                 <h2>My Profile</h2>
                 <div className="profile2">

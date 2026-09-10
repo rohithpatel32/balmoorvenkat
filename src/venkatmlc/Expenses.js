@@ -2,6 +2,7 @@ import React from "react";
 import "../style/Expenses.css";
 import { HiMiniXMark } from "react-icons/hi2";
 import {  useNavigate } from "react-router-dom";
+import Navbar from "./Navbar"; 
 
 function Expenses(){
     const navigate =useNavigate()
@@ -10,6 +11,9 @@ function Expenses(){
         <>
         
         <div className="ex">
+            
+             <Navbar />
+            
             <div className="ex1">
             <div className="ex2"> 
             <h2 className="ex3">New expense</h2>

@@ -1,287 +1,544 @@
-.notification{
-    margin-left: 230px;
-    padding-top: 30px;
-  
-}
-.ntf{
-    background-color: whitesmoke;
+/* =========================================
+   MAIN PAGE
+========================================= */
+
+.notifications-page {
+    min-height: 100vh;
+    background: #f5f7fb;
 }
 
-.not{
+
+/* =========================================
+   CONTENT
+
+   Navbar = 240px
+========================================= */
+
+.notification-content {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    min-height: 100vh;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.notification-header {
     display: flex;
-    gap: 100px;
+    justify-content: space-between;
     align-items: center;
-}
-.not2{
-    margin-left: 850px;
-    height: 30px;
-    width: 160px;
-    border-radius: 5px;
-    background-color: blue;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-.not4{
-    font-size: 18px;
-    
-}
-.not5{
-    display: flex;
-    gap: 200px;
-    
-}
-
-.not6{
-    margin-left: 440px;
-    display: flex;
-    gap: 10px;
-}
-
-.not7{
-    width: 400px;
-    height: 30px;
-    border-radius: 5px;
-}
-#priority{
-    height: 30px;
-    width: 100px;
-    border-radius: 5px;
-}
-#status{
-    height: 30px;
-    width: 100px;
-    border-radius: 5px;
-}
-.sai{
-    display: flex;
     gap: 20px;
+    margin-bottom: 25px;
 }
 
-
-.not8 {
-    width: 405px;
-    height: 180px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
- transition: transform 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-.not8:hover {
-    transform: scale(0.95);
+.notification-header h2 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 26px;
+    font-weight: 700;
 }
 
-.not9 {
-    font-size: 30px;
-    color: #0B5ED7;
-}
-
-.not10 {
-    font-size: 15px;
-    margin-top: 8px;
-    color: #555;
-}
-
-.not11 {
+.notification-header p {
     margin: 5px 0 0;
-    font-size: 25px;
-    color: #222;
+    color: #6b7280;
+    font-size: 14px;
 }
 
 
+/* =========================================
+   NEW NOTIFICATION BUTTON
+========================================= */
 
-.not18 {
-    width: 405px;
-    height: 180px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-sizing: border-box;
-
+.new-notification-btn {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-top: 30px;
-     transition: transform 0.3s ease;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-.not18:hover {
-    transform: scale(0.95);
-}
-
-.not19 {
-    font-size: 30px;
-    color: #0B5ED7;
-}
-
-.not20 {
-    font-size: 15px;
-    margin-top: 8px;
-    color: #555;
-}
-
-.not21 {
-    margin: 5px 0 0;
-    font-size: 25px;
-    color: #222;
-}
-
-
-.not28 {
-    width: 405px;
-    height: 180px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin-top: 30px;
- transition: transform 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-.not28:hover {
-    transform: scale(0.95);
-}
+    gap: 8px;
 
-.not29 {
-    font-size: 30px;
-    color: #0B5ED7;
-}
+    min-height: 42px;
+    padding: 0 18px;
 
-.not30 {
-    font-size: 15px;
-    margin-top: 8px;
-    color: #555;
-}
+    border: none;
+    border-radius: 7px;
 
-.not31 {
-    margin: 5px 0 0;
-    font-size: 25px;
-    color: #222;
-}
+    background: #0b5ed7;
+    color: white;
 
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    margin-top: 30px;
-}
-
-
-thead {
-    background-color: #0B5ED7;
-   
-}
-
-th {
-    padding: 14px 12px;
-    text-align: center;
     font-size: 14px;
     font-weight: 600;
-    color: white;
-    
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.new-notification-btn:hover {
+    background: #084db2;
+    transform: translateY(-1px);
+}
+
+.new-notification-btn svg {
+    font-size: 18px;
 }
 
 
-td {
-    padding: 14px 12px;
-    border-bottom: 1px solid #e5e7eb;
+/* =========================================
+   SEARCH + FILTER
+========================================= */
+
+.notification-filters {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.notification-filters input {
+    flex: 1;
+
+    min-width: 0;
+    height: 42px;
+
+    padding: 0 14px;
+
+    border: 1px solid #d7dce5;
+    border-radius: 7px;
+
+    background: white;
+
+    outline: none;
+
     font-size: 14px;
     color: #333;
+
+    box-sizing: border-box;
+}
+
+.notification-filters input:focus {
+    border-color: #0b5ed7;
+}
+
+.notification-filters select {
+    width: 150px;
+    height: 42px;
+
+    padding: 0 10px;
+
+    border: 1px solid #d7dce5;
+    border-radius: 7px;
+
+    background: white;
+
+    outline: none;
+
+    font-size: 14px;
+    color: #333;
+
+    cursor: pointer;
 }
 
 
-tbody tr:hover {
-    background-color: #f5f8ff;
+/* =========================================
+   STATISTICS
+========================================= */
+
+.notification-stats {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 30px;
 }
 
 
-tbody tr:last-child td {
+/* =========================================
+   STAT CARD
+========================================= */
+
+.stat-card {
+    min-height: 160px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background: white;
+
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-icon {
+    font-size: 32px;
+    color: #0b5ed7;
+
+    margin-bottom: 8px;
+}
+
+.stat-card span {
+    color: #555;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.stat-card h2 {
+    margin: 5px 0 0;
+
+    color: #222;
+
+    font-size: 25px;
+}
+
+
+/* =========================================
+   TABLE CONTAINER
+
+   Important:
+   This prevents table from breaking
+   the page width.
+========================================= */
+
+.notification-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.notification-table {
+    width: 100%;
+
+    min-width: 900px;
+
+    border-collapse: collapse;
+
+    background: white;
+}
+
+
+/* =========================================
+   TABLE HEADER
+========================================= */
+
+.notification-table thead {
+    background: #0b5ed7;
+}
+
+.notification-table th {
+    padding: 14px 12px;
+
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: white;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   TABLE BODY
+========================================= */
+
+.notification-table td {
+    padding: 13px 12px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 13px;
+
+    color: #333;
+
+    text-align: center;
+
+    vertical-align: middle;
+}
+
+.notification-table tbody tr:hover {
+    background: #f5f8ff;
+}
+
+.notification-table tbody tr:last-child td {
     border-bottom: none;
 }
 
 
-.sea {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* =========================================
+   TITLE
+========================================= */
+
+.notification-title {
+    font-weight: 600;
+    color: #1f2937 !important;
 }
 
 
+/* =========================================
+   MESSAGE
+========================================= */
 
-.sea1:hover,
-.sea2:hover,
-.sea3:hover {
+.notification-message {
+    text-align: left !important;
+
+    max-width: 300px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================
+   PRIORITY BADGE
+========================================= */
+
+.priority-badge,
+.status-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 65px;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* Priority */
+
+.priority-badge.high {
+    background: #ffe3e3;
+    color: #d62828;
+}
+
+.priority-badge.medium {
+    background: #fff1cc;
+    color: #a66a00;
+}
+
+.priority-badge.low {
+    background: #dff7e8;
+    color: #16803c;
+}
+
+
+/* =========================================
+   STATUS BADGE
+========================================= */
+
+.status-badge.unread {
+    background: #e0ecff;
+    color: #0b5ed7;
+}
+
+.status-badge.read {
+    background: #e5e7eb;
+    color: #555;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.action-buttons {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+}
+
+
+/* Remove default button style */
+
+.action-buttons button {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 5px;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+.action-buttons button:hover {
     transform: scale(1.08);
 }
 
 
-@media (max-width: 900px) {
-    table {
-        font-size: 12px;
+/* View */
+
+.view-btn {
+    background: #00bcd4;
+}
+
+
+/* Edit */
+
+.edit-btn {
+    background: #08c641;
+}
+
+
+/* Delete */
+
+.delete-btn {
+    background: #f12a18;
+}
+
+
+/* =========================================
+   NO DATA
+========================================= */
+
+.no-data {
+    padding: 30px !important;
+
+    text-align: center !important;
+
+    color: #777 !important;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .notification-content {
+        padding: 25px;
     }
 
-    th,
-    td {
-        padding: 10px 8px;
+    .notification-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .notification-filters select {
+        width: 130px;
     }
 }
 
-.sea{
-    display: flex;
-    gap: 15px;
-    margin-left: 80px;
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .notification-content {
+        margin-left: 210px;
+
+        width: calc(100% - 210px);
+
+        padding: 20px;
+    }
+
+    .notification-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .new-notification-btn {
+        width: 100%;
+    }
+
+    .notification-filters {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .notification-filters input,
+    .notification-filters select {
+        width: 100%;
+    }
+
+    .notification-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        min-height: 130px;
+    }
 }
 
-.sea1{
-    display: flex;
-    width: 30px;
-    height: 30px;
-    background-color: aqua;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-}
-.sea2{
-    display: flex;
-    width: 30px;
-    height: 30px;
-    background-color: rgb(8, 198, 65);
-    color: white;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-}
 
-.sea3{
-    display: flex;
-    width: 30px;
-    height: 30px;
-    background-color: rgb(241, 42, 24);
-    color: white;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-}
+/* =========================================
+   SMALL MOBILE
+========================================= */
 
+@media (max-width: 600px) {
+
+    .notification-content {
+        margin-left: 200px;
+
+        width: calc(100% - 200px);
+
+        padding: 15px;
+    }
+
+    .notification-header h2 {
+        font-size: 22px;
+    }
+}

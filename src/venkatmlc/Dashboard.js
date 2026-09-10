@@ -1,146 +1,165 @@
 import React from "react";
+import Navbar from "./Navbar";
 import "../style/Dashboard.css";
+
 import { FaBars } from "react-icons/fa";
 import { BsPeopleFill } from "react-icons/bs";
 import { FaArrowRightLong } from "react-icons/fa6";
+
 import StatusChart from "./StatusChart";
 import ColumnChart from "./ColumnChart";
 import Upcoming from "./Upcoming";
 
-
-
 function Dashboard() {
   return (
-    <div className="mlc1">
-      <div className="hp">
-      <button className="menu-btn">
-        <FaBars />
-      </button>
+    <div className="dashboard-container">
 
-      <div className="mlc3">
-        <div className="mlc2">
-        <h3  className="pad1">
-          Welcome back, MLC Balmoor Venkat Reddy
-        </h3>
-        <p className="blmr1">Here's What's happening in your constituency</p>
-        </div>
+      {/* ================= SIDEBAR ================= */}
+      <Navbar />
 
-        <input type="date" className="td" />
-      </div>
+      {/* ================= MAIN CONTENT ================= */}
+      <main className="dashboard-main">
 
-      <div className="orange">
+        {/* ================= HEADER ================= */}
+        <div className="dashboard-header">
 
-        {/* Card 1 */}
-        <div className="mlc4">
-          <div className="icon1">
-            <BsPeopleFill />
-          </div>
+          <button className="menu-btn" type="button">
+            <FaBars />
+          </button>
 
-          <div className="mlc5">
-            <h2>12,843</h2>
-            <p>Total Voters</p>
+          <div className="welcome-section">
 
-            <div className="icon2">
-              <a
-                href="https://www.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Details
-              </a>
+            <div>
+              <h3>
+                Welcome back, MLC Balmoor Venkat Reddy
+              </h3>
 
-              <FaArrowRightLong />
+              <p>
+                Here's what's happening in your constituency
+              </p>
             </div>
+
+            <input
+              type="date"
+              className="dashboard-date"
+            />
+
           </div>
+
         </div>
 
-        {/* Card 2 */}
-        <div className="mlc6">
-          <div className="icon3">
-            <BsPeopleFill />
-          </div>
+        {/* ================= SUMMARY CARDS ================= */}
+        <div className="dashboard-cards">
 
-          <div className="mlc7">
-            <h2>156</h2>
-            <p>Grievances</p>
+          {/* Card 1 */}
+          <div className="dashboard-card card-voters">
 
-            <div className="icon4">
-              <a
-                href="https://www.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Details
-              </a>
-
-              <FaArrowRightLong />
+            <div className="card-icon">
+              <BsPeopleFill />
             </div>
-          </div>
-        </div>
 
-        {/* Card 3 */}
-        <div className="mlc8">
-          <div className="icon5">
-            <BsPeopleFill />
-          </div>
+            <div className="card-content">
 
-          <div className="mlc9">
-            <h2>24</h2>
-            <p>Meetings</p>
+              <h2>12,843</h2>
 
-            <div className="icon6">
-              <a
-                href="https://www.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Details
-              </a>
+              <p>Total Voters</p>
 
-              <FaArrowRightLong />
+              <div className="card-link">
+                <span>View Details</span>
+                <FaArrowRightLong />
+              </div>
+
             </div>
-          </div>
-        </div>
 
-        {/* Card 4 */}
-        <div className="mlc10">
-          <div className="icon7">
-            <BsPeopleFill />
           </div>
 
-          <div className="mlc11">
-            <h2>24</h2>
-            <p>Meetings</p>
+          {/* Card 2 */}
+          <div className="dashboard-card card-grievances">
 
-            <div className="icon8">
-              <a
-                href="https://www.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Details
-              </a>
-
-              <FaArrowRightLong />
+            <div className="card-icon">
+              <BsPeopleFill />
             </div>
+
+            <div className="card-content">
+
+              <h2>156</h2>
+
+              <p>Grievances</p>
+
+              <div className="card-link">
+                <span>View Details</span>
+                <FaArrowRightLong />
+              </div>
+
+            </div>
+
           </div>
+
+          {/* Card 3 */}
+          <div className="dashboard-card card-meetings">
+
+            <div className="card-icon">
+              <BsPeopleFill />
+            </div>
+
+            <div className="card-content">
+
+              <h2>24</h2>
+
+              <p>Meetings</p>
+
+              <div className="card-link">
+                <span>View Details</span>
+                <FaArrowRightLong />
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Card 4 */}
+          <div className="dashboard-card card-development">
+
+            <div className="card-icon">
+              <BsPeopleFill />
+            </div>
+
+            <div className="card-content">
+
+              <h2>24</h2>
+
+              <p>Development Works</p>
+
+              <div className="card-link">
+                <span>View Details</span>
+                <FaArrowRightLong />
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
-      </div>
+        {/* ================= CHARTS ================= */}
+        <div className="dashboard-charts">
 
-      <div className="chart">
+          <div className="status-chart-box">
+            <StatusChart />
+          </div>
 
-      
+          <div className="column-chart-box">
+            <ColumnChart />
+          </div>
 
-      <StatusChart />
-      <ColumnChart/>
-      </div>
-      <div>
-      <Upcoming/>
-      </div>
-      
-              
-       </div>      
+        </div>
+
+        {/* ================= UPCOMING ================= */}
+        <div className="upcoming-section">
+          <Upcoming />
+        </div>
+
+      </main>
 
     </div>
   );
